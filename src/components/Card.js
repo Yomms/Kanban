@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Column2 from './Column2.js';
 
 function Card(props) {
@@ -24,7 +24,8 @@ function Card(props) {
 	    	<div> {props.requests.map((request, i) => (
 			    			<div>
 					    		<span key={i}>{request.task}</span>
-					    		<input type="checkbox" name="In Progress" checked={request.inProgress} onChange={(e) => handleRequestCheckbox(i)}/>
+					    		<input type="checkbox" label="In Progress" name="In Progress" checked={request.inProgress} onChange={(e) => handleRequestCheckbox(i)}/>
+                  <span>In Progress</span>
 				    		</div>
 		    			))}
 	    	</div>

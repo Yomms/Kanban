@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 function Column3(props) {
 
@@ -20,7 +20,8 @@ function Column3(props) {
     	<div> {props.done.map((doneR, k) => (
 			    		<div>
 			    			<div>{doneR.task}</div>
-			    			<input type="checkbox" name="In Progress" checked={doneR.done} onChange={(e) => handleDoneCheckbox(k)} />
+			    			<input type="checkbox" name="done" checked={doneR.done} onChange={(e) => handleDoneCheckbox(k)} />
+			    			<span>Done</span>
 			    		</div>
     				))} 
     	</div>

@@ -35,8 +35,10 @@ function Column2(props) {
 				<div> {props.progress.map((progressR, j) => (
 								<div>
 									<div>{progressR.task}</div>
-									<input type="checkbox" name="In Progress" checked={progressR.inProgress} onChange={(e) => handleInProgressCheckbox(j)} />
-									<input type="checkbox" name="done" checked={progressR.done} onChange={(e) => handleDoneCheckbox(j)} />
+									<input type="checkbox" label="In Progress" name="In Progress" checked={progressR.inProgress} onChange={(e) => handleInProgressCheckbox(j)} />
+									<span>In Progress</span>
+									<input type="checkbox" label="done" name="done" checked={progressR.done} onChange={(e) => handleDoneCheckbox(j)} />
+									<span>Done</span>
 								</div>
 							))} 
 				</div>
