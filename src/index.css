@@ -4,10 +4,19 @@
 }
 
 .Column2 {
+	float: left;
 	width: 33.33%;
 }
 
 .Column3 {
-	float: right;
+	float: left;
 	width: 33.33%;
+}
+
+.form {
+	margin: 50px 0px;
+}
+
+.bold {
+	font-weight: bold;
 }
