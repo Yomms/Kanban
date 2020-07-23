@@ -1,20 +1,26 @@
 import React, {useState} from 'react';
-import Column2 from './Column2.js';
+import InProgress from './InProgress.js';
 
 function Requests({requests, setRequests}) {
 
 	const [progress, setProgress] = useState([]);
 
-  function handleRequestCheckbox(index) {
-  	let newRequests = [...requests]
-  	newRequests[index].inProgress = !newRequests[index].inProgress
-  	setRequests(newRequests);
-  	console.log(requests[index].inProgress)
+  function handleCheckboxIP(index, array, setArray, nextArray) {
 
-  	if (requests[index].inProgress) {
-  		progress.push(requests[index]);
+  	let newRequests = [...array]
+  	newRequests[index].inProgress = !newRequests[index].inProgress
+  	setArray(newRequests);
+
+  	if (array[index].inProgress) {
+  		nextArray.push(array[index]);
   		newRequests.splice(index, 1)
-  		setRequests(newRequests)
+  		setArray(newRequests)
+  	}
+
+  	else if (!array[index].inProgress) {
+  		nextArray.push(array[index]);
+  		newRequests.splice(index, 1)
+  		setArray(newRequests)
   	}
   }
 
@@ -24,13 +30,13 @@ function Requests({requests, setRequests}) {
 	    	<div> {requests.map((request, i) => (
 			    			<div>
 					    		<span key={i}>{request.task}</span>
-					    		<input type="checkbox" label="In Progress" checked={request.inProgress} onChange={(e) => handleRequestCheckbox(i)}/>
+					    		<input type="checkbox" label="In Progress" checked={request.inProgress} onChange={(e) => handleCheckboxIP(i, requests, setRequests, progress)}/>
                   <span>In Progress</span>
 				    		</div>
 		    			))}
 	    	</div>
 	    </span>    
-	   	<Column2 progress={progress} setProgress={setProgress} requests={requests} />
+	   	<InProgress progress={progress} setProgress={setProgress} requests={requests} handleCheckboxIP={handleCheckboxIP} />
     </div>
   );
 }
