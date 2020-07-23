@@ -1,12 +1,12 @@
 import React from 'react';
-import Columns from './components/Columns.js';
+import Input from './components/Input.js';
 
 
 function App() {
   return (
     <div>
     <h1>Kanban Board</h1>
-    <Columns />
+    <Input />
     </div>
   );
 }

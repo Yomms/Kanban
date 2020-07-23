@@ -1,49 +1,49 @@
 import React, {useState} from 'react';
 import Column3 from './Column3.js'
 
-function Column2(props) {
+function Column2({progress, setProgress, requests}) {
 
 	const [done, setDone] = useState([]);
 
 	function handleInProgressCheckbox(index) {
-		let newRequests = [...props.progress]
+		let newRequests = [...progress]
 		newRequests[index].inProgress = !newRequests[index].inProgress
-		props.setProgress(newRequests);
+		setProgress(newRequests);
 
-		if (!props.progress[index].inProgress) {
-			props.requests.push(props.progress[index])
+		if (!progress[index].inProgress) {
+			requests.push(progress[index])
 			newRequests.splice(index, 1)
-			props.setProgress(newRequests)
+			setProgress(newRequests)
 		}
 	}
 
 	function handleDoneCheckbox(index) {
-		let newRequests = [...props.progress]
+		let newRequests = [...progress]
 		newRequests[index].done = !newRequests[index].done
-		props.setProgress(newRequests);
+		setProgress(newRequests);
 
-		if (props.progress[index].done && props.progress[index].inProgress) {
-			done.push(props.progress[index])
+		if (progress[index].done && progress[index].inProgress) {
+			done.push(progress[index])
 			newRequests.splice(index, 1)
-			props.setProgress(newRequests)
+			setProgress(newRequests)
 		}	
 	}
 	
 	return(
 		<div>
 			<span className='Column2'><span className="bold">In Progress</span> 
-				<div> {props.progress.map((progressR, j) => (
+				<div> {progress.map((progressR, j) => (
 								<div>
 									<div>{progressR.task}</div>
-									<input type="checkbox" label="In Progress" name="In Progress" checked={progressR.inProgress} onChange={(e) => handleInProgressCheckbox(j)} />
+									<input type="checkbox" label="In Progress" checked={progressR.inProgress} onChange={(e) => handleInProgressCheckbox(j)} />
 									<span>In Progress</span>
-									<input type="checkbox" label="done" name="done" checked={progressR.done} onChange={(e) => handleDoneCheckbox(j)} />
+									<input type="checkbox" label="done" checked={progressR.done} onChange={(e) => handleDoneCheckbox(j)} />
 									<span>Done</span>
 								</div>
 							))} 
 				</div>
 			</span>
-			<Column3 done={done} setDone={setDone} {...props} />
+			<Column3 done={done} setDone={setDone} progress={progress} />
 		</div>
 	)
 }

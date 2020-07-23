@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import Card from './Card.js';
+import Requests from './Requests.js';
 
-function Columns() {
+function Input() {
 
 	const [input, setInput] = useState();
 	const [requests, setRequests] = useState([]);
@@ -20,10 +20,10 @@ function Columns() {
   			<button>Task</button>
   		</form>
   		<div>
-		    <Card requests={requests} setRequests={setRequests} />
+		    <Requests requests={requests} setRequests={setRequests} />
 	    </div>
 	  </div>
   );
 }
 
-export default Columns;
+export default Input;
