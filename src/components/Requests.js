@@ -24,6 +24,32 @@ function Requests({requests, setRequests}) {
   	}
   }
 
+
+  // task: {
+  //   id,
+  //   task description
+  //   status: open | in progress | done
+  // }
+
+  // 3 arrays each of them are the buckets of the status
+  // open array = []
+  // inProgressArray = [id, id]
+  // doneArray
+
+  // 3 boxes corresponding to the statuses
+
+
+
+  // task: {
+  //   id,
+  //   task
+  // }
+
+
+  // statusMap: {
+  //   id: status
+  // }
+
   return (
   	<div>
 	    <span className='Column1'><span className="bold">Requests</span>
@@ -35,7 +61,7 @@ function Requests({requests, setRequests}) {
 				    		</div>
 		    			))}
 	    	</div>
-	    </span>    
+	    </span>
 	   	<InProgress progress={progress} setProgress={setProgress} requests={requests} handleCheckboxIP={handleCheckboxIP} />
     </div>
   );

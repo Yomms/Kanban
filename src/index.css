@@ -20,3 +20,9 @@
 .bold {
 	font-weight: bold;
 }
+
+
+.task-container {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+}
