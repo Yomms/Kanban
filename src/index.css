@@ -20,3 +20,18 @@
 .bold {
 	font-weight: bold;
 }
+
+.task-container {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+}
+
+#task {
+	padding: 15px;
+	border: 1px solid black;
+	marginBottom: 10px;
+}
+
+.selector {
+	float: right;
+}
