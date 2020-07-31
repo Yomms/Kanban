@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Features from './Features.js'
 
 function Task( {tasks, setTasks, label, moveTaskIP, moveTaskDone, moveTaskOpen} ) {
 
@@ -6,6 +7,7 @@ function Task( {tasks, setTasks, label, moveTaskIP, moveTaskDone, moveTaskOpen} 
 
   function handleChange(e, i, task) {
     task.status = e.target.value
+    console.log(task)
 
     if(task.status === "inProgress") {
       moveTaskIP(task, i, tasks)
@@ -18,6 +20,7 @@ function Task( {tasks, setTasks, label, moveTaskIP, moveTaskDone, moveTaskOpen} 
     else {
       moveTaskOpen(task, i, tasks)
     }
+    e.target.value = "open"
   }
 
   return (
@@ -27,12 +30,8 @@ function Task( {tasks, setTasks, label, moveTaskIP, moveTaskDone, moveTaskOpen} 
         {tasks.map((task, i) => {
           return (
             <div className={task} id="task"> 
-              {task.task} {task.status}
-              <select className="selector" onChange={ (e) => handleChange(e, i, task) } value={task.status}>
-                <option value="open">Open</option>
-                <option value="inProgress">In Progress</option>
-                <option value="done">Done</option>
-              </select>
+              {task.task}
+              <Features task={task} handleChange={handleChange} i={i} />
             </div>
           );
         })}
