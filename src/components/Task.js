@@ -7,7 +7,6 @@ function Task( {tasks, setTasks, label, moveTaskIP, moveTaskDone, moveTaskOpen} 
 
   function handleChange(e, i, task) {
     task.status = e.target.value
-    console.log(task)
 
     if(task.status === "inProgress") {
       moveTaskIP(task, i, tasks)
@@ -29,8 +28,8 @@ function Task( {tasks, setTasks, label, moveTaskIP, moveTaskDone, moveTaskOpen} 
     	<div className="list">
         {tasks.map((task, i) => {
           return (
-            <div className={task} id="task"> 
-              {task.task}
+            <div className={task} id="task">
+              <span className="individualTask">{task.task}</span>
               <Features task={task} handleChange={handleChange} i={i} />
             </div>
           );

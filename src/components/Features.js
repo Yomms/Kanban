@@ -1,16 +1,18 @@
 import React, {useState} from 'react'
+import Status from './Features/Status.js'
+import Summary from './Features/Summary.js'
 
 function Features({task, handleChange, i}) {
 
-	
-	
+	const [summaryInput, setSummaryInput] = useState();
+
 	return(
 		<span>
-			<select className="selector" onChange={ (e) => handleChange(e, i, task) } value={task.status}>
-			  <option value="open">Open</option>
-			  <option value="inProgress">In Progress</option>
-			  <option value="done">Done</option>
-			</select>
+			<Status task={task} handleChange={handleChange} i={i} />
+			<div>
+			{task.comment}
+			</div>
+			<Summary task={task} summaryInput={summaryInput} setSummaryInput={setSummaryInput}/>	
 		</span>
 	)
 }

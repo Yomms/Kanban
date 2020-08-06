@@ -35,3 +35,17 @@
 .selector {
 	float: right;
 }
+
+.summary {
+	margin: 10px 0;
+}
+
+.individualTask {
+	font-weight: bold;
+}
+
+.textArea {
+	margin: 0px;
+  width: 250px;
+  height: 59px;
+}
