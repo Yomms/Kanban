@@ -10,7 +10,7 @@ function Features({task, handleChange, i}) {
 		<span>
 			<Status task={task} handleChange={handleChange} i={i} />
 			<div>
-			{task.comment}
+				{task.comment}
 			</div>
 			<Summary task={task} summaryInput={summaryInput} setSummaryInput={setSummaryInput}/>	
 		</span>

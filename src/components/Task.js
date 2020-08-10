@@ -19,7 +19,6 @@ function Task( {tasks, setTasks, label, moveTaskIP, moveTaskDone, moveTaskOpen} 
     else {
       moveTaskOpen(task, i, tasks)
     }
-    e.target.value = "open"
   }
 
   return (

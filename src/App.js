@@ -19,6 +19,8 @@ function App() {
 		newArray.push(task)
 		array.splice(i, 1)
 		setOpen(newArray)
+		setInProgress(inProgress)
+		setDone(done)
 	}
 
 	function moveTaskIP(task, i, array) {
@@ -26,6 +28,8 @@ function App() {
 		newArray.push(task)
 		array.splice(i, 1)
 		setInProgress(newArray)
+		setOpen(open)
+		setDone(done)
 	}
 
 	function moveTaskDone(task, i, array) {
@@ -33,6 +37,8 @@ function App() {
 		newArray.push(task)
 		array.splice(i, 1)
 		setDone(newArray)
+		setOpen(open)
+		setInProgress(inProgress)
 	}
 
   return (
