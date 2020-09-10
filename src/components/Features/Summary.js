@@ -1,8 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 function Summary({task, summaryInput, setSummaryInput}) {
-
-	// const [input, setInput] = useState({});
 
 	function handleSubmit(e) {
 		e.preventDefault();

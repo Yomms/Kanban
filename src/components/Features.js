@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
 import Status from './Features/Status.js'
 import Summary from './Features/Summary.js'
+import Delete from './Features/Delete.js'
 
-function Features({task, handleChange, i}) {
+function Features({task, handleChange, deleteTask, i}) {
 
 	const [summaryInput, setSummaryInput] = useState();
 
 	return(
 		<span>
-			<Status task={task} handleChange={handleChange} i={i} />
+			<span><Delete deleteTask={deleteTask} task={task} i={i}/></span>
+			<Status task={task} handleChange={handleChange} i={i}/>
 			<div>
 				{task.comment}
 			</div>
@@ -18,3 +20,4 @@ function Features({task, handleChange, i}) {
 }
 
 export default Features;
+
